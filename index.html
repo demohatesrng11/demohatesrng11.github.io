@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dhruv (ドルブ) — Master's student in Computer Science & Communications Engineering at Waseda University, Tokyo. Working in machine learning, deep learning, LLMs, RAG, and computer vision." />
+  <meta name="theme-color" content="#e9e5de" />
+  <title>Dhruv ドルブ — Computer Science & Machine Learning</title>
+
+  <!-- inline favicon: rotated diamond -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='9' y='9' width='14' height='14' transform='rotate(45 16 16)' fill='%231a1813'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- paper grain texture -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============================ NAV (preserved floating pill) ============================ -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-logo">
+      <span class="logo-mark">◆</span>
+      <span class="logo-text">Dhruv</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">
+      <span>Let's talk</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- mobile menu overlay -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact" class="mm-cta">Let's talk</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================ HERO ============================ -->
+  <header class="hero" id="home">
+    <div class="hero-card">
+
+      <div class="hero-top" data-rise style="--d:.05s">
+        <div class="hero-contact">
+          <span class="hero-email">hello@dhruv.dev</span>
+          <button class="chip" id="copyEmail" data-email="hello@dhruv.dev" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="9" y="9" width="11" height="11" rx="2.4"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <span class="chip-label">Copy</span>
+          </button>
+          <a class="chip" href="#" aria-label="Download résumé">
+            Résumé
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+          </a>
+        </div>
+        <nav class="hero-social" aria-label="Social profiles">
+          <a href="#">GitHub</a><span aria-hidden="true">/</span><a href="#">LinkedIn</a><span aria-hidden="true">/</span><a href="#">Read.cv</a>
+        </nav>
+      </div>
+
+      <div class="hero-center">
+        <div class="hero-id" data-rise style="--d:.13s">
+          <span class="avatar" aria-hidden="true">D</span>
+        </div>
+
+        <p class="hero-name" data-rise style="--d:.2s">Dhruv <span class="kana" lang="ja">ドルブ（デモ）</span></p>
+
+        <h1 class="hero-h" data-rise style="--d:.27s">
+          Building software,<br/>
+          interfaces &amp; <em>experiences.</em>
+        </h1>
+
+        <p class="hero-sub" data-rise style="--d:.36s">
+          Master's student in Computer Science &amp; Communications Engineering at
+          Waseda University, Tokyo. I build with machine learning, deep learning,
+          and large language models.
+        </p>
+
+        <div class="hero-actions" data-rise style="--d:.44s">
+          <a class="btn btn-dark" href="#projects">
+            View work
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ PROJECTS ============================ -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal"><span class="ix">01</span> — Projects</p>
+        <h2 class="section-h reveal">Selected work.</h2>
+      </div>
+
+      <div class="features">
+
+        <a href="#" class="feature reveal">
+          <div class="feature-text">
+            <p class="feature-eyebrow">Aurora Notes &nbsp;·&nbsp; 2025</p>
+            <h3 class="feature-h">A quiet notebook for thinking out loud.</h3>
+            <p class="feature-desc">A markdown-first writing tool with calm typography, native shortcuts, and offline-first storage designed to be easy on the eyes.</p>
+            <div class="feature-meta">
+              <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">IndexedDB</span>
+            </div>
+            <div class="feature-links">
+              <span class="ink-link">Live <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+              <span class="ink-link">Source <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </div>
+          <span class="feature-num" aria-hidden="true">01</span>
+        </a>
+
+        <a href="#" class="feature reveal">
+          <div class="feature-text">
+            <p class="feature-eyebrow">Pulse &nbsp;·&nbsp; 2025</p>
+            <h3 class="feature-h">Real-time analytics that feel calm, not chaotic.</h3>
+            <p class="feature-desc">A streaming dashboard that surfaces signal in a sea of live data — clear hierarchy, smooth transitions, no overwhelm.</p>
+            <div class="feature-meta">
+              <span class="tag">Next.js</span><span class="tag">WebSockets</span><span class="tag">D3</span>
+            </div>
+            <div class="feature-links">
+              <span class="ink-link">Live <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+              <span class="ink-link">Case study <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </div>
+          <span class="feature-num" aria-hidden="true">02</span>
+        </a>
+
+        <a href="#" class="feature feature-dark reveal">
+          <div class="feature-text">
+            <p class="feature-eyebrow">Loop Studio &nbsp;·&nbsp; 2024</p>
+            <h3 class="feature-h">A browser-based loop sequencer, built from scratch.</h3>
+            <p class="feature-desc">A small surface area with a large possibility space. Web Audio, Canvas, and a lot of patience for the timing.</p>
+            <div class="feature-meta">
+              <span class="tag">Web Audio</span><span class="tag">Canvas</span><span class="tag">TypeScript</span>
+            </div>
+            <div class="feature-links">
+              <span class="ink-link">Try it <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+              <span class="ink-link">Source <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </div>
+          <span class="feature-num" aria-hidden="true">03</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ RESEARCH ============================ -->
+  <section class="section alt" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal"><span class="ix">02</span> — Research</p>
+        <h2 class="section-h reveal">Research interests.</h2>
+      </div>
+
+      <div class="r-grid">
+        <article class="r-card reveal">
+          <span class="r-tag">RG—01</span>
+          <h3>Machine Learning &amp; Deep Learning</h3>
+          <span class="r-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </article>
+        <article class="r-card reveal">
+          <span class="r-tag">RG—02</span>
+          <h3>Computer Vision</h3>
+          <span class="r-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </article>
+        <article class="r-card reveal">
+          <span class="r-tag">RG—03</span>
+          <h3>Large Language Models</h3>
+          <span class="r-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </article>
+        <article class="r-card reveal">
+          <span class="r-tag">RG—04</span>
+          <h3>Retrieval-Augmented Generation</h3>
+          <span class="r-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ EDUCATION ============================ -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal"><span class="ix">03</span> — Education</p>
+        <h2 class="section-h reveal">Where I've studied.</h2>
+      </div>
+
+      <div class="edu">
+        <div class="edu-row reveal">
+          <span class="edu-y">2026 — 2028</span>
+          <div class="edu-c">
+            <h3>Master's, Computer Science &amp; Communications Engineering</h3>
+            <p>Waseda University &nbsp;·&nbsp; Tokyo, Japan</p>
+            <p class="edu-focus">Graduate School of Fundamental Science &amp; Engineering</p>
+          </div>
+          <span class="edu-tag is-now">Current</span>
+        </div>
+        <div class="edu-row reveal">
+          <span class="edu-y">2022 — 2025</span>
+          <div class="edu-c">
+            <h3>B.Sc. (Hons.), Computer Science</h3>
+            <p>Deen Dayal Upadhyaya College (DDUC)</p>
+            <p class="edu-focus">University of Delhi &nbsp;·&nbsp; New Delhi, India</p>
+          </div>
+          <span class="edu-tag">Undergraduate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SKILLS ============================ -->
+  <section class="section alt" id="skills">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="pill-label reveal">Skills</span>
+        <h2 class="section-h reveal">What I work with.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill reveal">
+          <span class="skill-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6.6 17 11M7 17.4 17 13"/></svg>
+          </span>
+          <h3>Machine Learning</h3>
+          <ul class="skill-tags">
+            <li>Machine Learning</li><li>Deep Learning</li><li>Computer Vision</li>
+          </ul>
+        </article>
+
+        <article class="skill reveal">
+          <span class="skill-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8 8 0 0 1-11.4 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/><path d="M12 8.5v4M10 10.5h4"/></svg>
+          </span>
+          <h3>LLMs &amp; RAG</h3>
+          <ul class="skill-tags">
+            <li>LLMs</li><li>RAG</li><li>Generative AI</li>
+          </ul>
+        </article>
+
+        <article class="skill reveal">
+          <span class="skill-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg>
+          </span>
+          <h3>Programming</h3>
+          <ul class="skill-tags">
+            <li>Python</li><li>C++</li>
+          </ul>
+        </article>
+
+        <article class="skill reveal">
+          <span class="skill-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+          </span>
+          <h3>Languages</h3>
+          <ul class="skill-tags">
+            <li>English · Proficient</li><li>Japanese · N3</li><li>Chinese · HSK3</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <span class="status"><i class="dot" aria-hidden="true"></i> Open to internships &amp; research</span>
+        <h2 class="contact-h">Have something<br/><em>worth building?</em></h2>
+        <p class="contact-sub">Internships, research collaborations, or a side project — I'd love to hear about it.</p>
+        <div class="contact-actions">
+          <a class="btn btn-dark" href="mailto:hello@dhruv.dev">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+            Email me
+          </a>
+          <a class="btn btn-ghost" href="#">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="contact-socials">
+          <a href="#">GitHub</a><span aria-hidden="true">·</span>
+          <a href="#">LinkedIn</a><span aria-hidden="true">·</span>
+          <a href="#">Read.cv</a><span aria-hidden="true">·</span>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="footer-logo"><span class="logo-mark">◆</span> Dhruv</span>
+      <span class="muted">© <span id="year"></span> — Designed &amp; built in Tokyo.</span>
+      <a href="#home" class="footer-top">Back to top
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
