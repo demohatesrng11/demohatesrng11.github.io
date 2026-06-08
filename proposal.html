@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>A little question… 💌</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ff7eb3;
+    --pink-soft:#ffb6d5;
+    --red:#ff3d6e;
+    --deep:#d6336c;
+    --cream:#fff0f6;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    font-family:'Quicksand',system-ui,sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffd1e3 0%, #ffb0cf 35%, #ff8fc0 70%, #ff6fae 100%);
+    background-size:300% 300%;
+    animation:bgShift 14s ease infinite;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    text-align:center;
+    color:#7a0030;
+    -webkit-tap-highlight-color:transparent;
+  }
+  @keyframes bgShift{
+    0%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
+  }
+
+  /* floating hearts + stars layer */
+  .sky{ position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+  .float{
+    position:absolute;
+    bottom:-60px;
+    font-size:24px;
+    opacity:0;
+    will-change:transform,opacity;
+    animation:rise linear forwards;
+    filter:drop-shadow(0 4px 6px rgba(214,51,108,.25));
+  }
+  @keyframes rise{
+    0%{ transform:translateY(0) rotate(0deg) scale(.6); opacity:0; }
+    10%{ opacity:.95; }
+    90%{ opacity:.9; }
+    100%{ transform:translateY(-115vh) rotate(360deg) scale(1.1); opacity:0; }
+  }
+  .twinkle{
+    position:absolute;
+    color:#fff6;
+    animation:tw 2.4s ease-in-out infinite;
+    text-shadow:0 0 8px #fff;
+  }
+  @keyframes tw{
+    0%,100%{ opacity:.15; transform:scale(.7); }
+    50%{ opacity:1; transform:scale(1.25); }
+  }
+
+  /* the card */
+  .card{
+    position:relative;
+    z-index:5;
+    width:min(94vw,660px);
+    padding:58px 46px 54px;
+    border-radius:38px;
+    background:rgba(255,255,255,.55);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:2px solid rgba(255,255,255,.75);
+    box-shadow:0 30px 70px rgba(214,51,108,.35), inset 0 0 0 6px rgba(255,255,255,.25);
+    animation:pop .7s cubic-bezier(.2,1.3,.4,1) both, floatCard 6s ease-in-out 1s infinite;
+  }
+  @keyframes pop{ 0%{ transform:scale(.7); opacity:0; } 100%{ transform:scale(1); opacity:1; } }
+  @keyframes floatCard{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+
+  .bigheart{
+    font-size:88px;
+    line-height:1;
+    display:inline-block;
+    animation:beat 1.1s ease-in-out infinite;
+    filter:drop-shadow(0 8px 14px rgba(255,61,110,.45));
+  }
+  @keyframes beat{
+    0%,100%{ transform:scale(1); }
+    15%{ transform:scale(1.22); }
+    30%{ transform:scale(.96); }
+    45%{ transform:scale(1.12); }
+  }
+
+  .q{
+    font-family:'Pacifico',cursive;
+    font-size:clamp(30px,7vw,46px);
+    color:var(--red);
+    margin:14px 0 6px;
+    line-height:1.15;
+    text-shadow:0 3px 0 #fff, 0 6px 18px rgba(214,51,108,.3);
+  }
+  .sub{
+    font-weight:600;
+    font-size:21px;
+    color:#b1175a;
+    margin-bottom:30px;
+    letter-spacing:.2px;
+  }
+
+  /* buttons */
+  .btns{
+    position:relative;
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:center;
+    min-height:90px;
+    flex-wrap:wrap;
+  }
+  button{
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    border:none;
+    cursor:pointer;
+    border-radius:999px;
+    padding:16px 34px;
+    font-size:19px;
+    transition:transform .18s cubic-bezier(.2,1.3,.4,1), box-shadow .2s;
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
+  }
+  #yes{
+    background:linear-gradient(135deg,#ff5f8f,#ff2d6a);
+    color:#fff;
+    box-shadow:0 12px 26px rgba(255,45,106,.5);
+    transform-origin:center;
+    will-change:transform;
+    position:relative;
+    z-index:6;
+  }
+  #yes:hover{ filter:brightness(1.05); }
+  #yes:active{ transform:scale(var(--yesScale,1)) translateY(2px); }
+
+  #no{
+    background:#fff;
+    color:#c01754;
+    box-shadow:0 8px 18px rgba(214,51,108,.25);
+    border:2px solid #ffd0e2;
+    will-change:left,top,transform;
+  }
+  #no.run{ position:fixed; z-index:9; margin:0;
+    transition:left .16s ease-out, top .16s ease-out, transform .18s cubic-bezier(.2,1.3,.4,1); }
+
+  /* full-screen heart burst overlay */
+  .burst{ position:fixed; inset:0; z-index:50; pointer-events:none; }
+  .burst span{
+    position:absolute;
+    font-size:30px;
+    animation:fly .9s ease-out forwards;
+  }
+  @keyframes fly{
+    0%{ transform:translate(0,0) scale(.4); opacity:1; }
+    100%{ transform:translate(var(--tx),var(--ty)) scale(1.3); opacity:0; }
+  }
+
+  .hint{
+    margin-top:24px;
+    font-size:18px;
+    font-weight:600;
+    color:#c64b80;
+    opacity:.85;
+  }
+
+  /* little nav back to the main site */
+  .home-link{
+    position:fixed; top:18px; left:18px; z-index:40;
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'Quicksand',sans-serif; font-weight:700; font-size:14px;
+    text-decoration:none; color:#c01754;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    padding:9px 16px; border-radius:999px;
+    border:2px solid rgba(255,255,255,.85);
+    box-shadow:0 8px 20px rgba(214,51,108,.25);
+    transition:transform .18s, background .18s;
+  }
+  .home-link:hover{ transform:translateX(-2px) scale(1.05); background:#fff; }
+
+  /* name screen input + button */
+  #nameInput{
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:19px;
+    text-align:center; color:#a8174f;
+    width:min(84%,360px); display:block; margin:4px auto 26px;
+    padding:15px 22px;
+    border:2px solid rgba(255,255,255,.85); border-radius:999px;
+    background:rgba(255,255,255,.72);
+    box-shadow:inset 0 2px 8px rgba(214,51,108,.12), 0 8px 18px rgba(214,51,108,.15);
+    outline:none; transition:border .2s, box-shadow .2s, transform .2s;
+  }
+  #nameInput::placeholder{ color:#e890b4; font-weight:600; }
+  #nameInput:focus{
+    border-color:#ff5f8f; transform:scale(1.02);
+    box-shadow:inset 0 2px 8px rgba(214,51,108,.15), 0 10px 24px rgba(255,45,106,.28);
+  }
+  #goBtn{
+    background:linear-gradient(135deg,#ff5f8f,#ff2d6a); color:#fff;
+    box-shadow:0 12px 26px rgba(255,45,106,.5);
+  }
+  #goBtn:hover{ filter:brightness(1.05); transform:translateY(-2px); }
+  #goBtn:disabled{
+    opacity:.5; cursor:not-allowed; filter:grayscale(.25);
+    transform:none; box-shadow:0 6px 14px rgba(255,45,106,.25);
+  }
+  [hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+
+  <a class="home-link" href="index.html">← Back to site</a>
+
+  <div class="sky" id="sky" aria-hidden="true"></div>
+
+  <main class="card" id="nameCard">
+    <div class="bigheart">💌</div>
+    <h1 class="q">Hi there!</h1>
+    <p class="sub">before we start… what should I call you? 🥰</p>
+
+    <input id="nameInput" type="text" maxlength="40" placeholder="type your name…"
+           autocomplete="off" autocapitalize="words" />
+
+    <div class="btns">
+      <button id="goBtn" type="button" disabled>Let's play 💌</button>
+    </div>
+
+    <p class="hint">psst — a little something is waiting for you 😏</p>
+  </main>
+
+  <main class="card" id="proposalCard" hidden>
+    <div class="bigheart">💖</div>
+    <h1 class="q">Will you go out with me?</h1>
+    <p class="sub" id="subLine">be honest now… 🥺👉👈</p>
+
+    <div class="btns" id="btns">
+      <button id="yes" type="button">Yes 💘</button>
+      <button id="no" type="button">No</button>
+    </div>
+
+    <p class="hint">psst — the “No” button is a little shy 😏</p>
+  </main>
+
+<script>
+  /* ===================================================================
+       📨  GET NOTIFIED WHEN SOMEONE SAYS YES
+       1. Go to  https://web3forms.com
+       2. Enter your email (demohatesrng@gmail.com) and submit
+       3. Copy the "Access Key" they email you and paste it between the
+          quotes below (replace YOUR_ACCESS_KEY_HERE — keep the quotes)
+     =================================================================== */
+  const WEB3FORMS_ACCESS_KEY = "5c1fc42e-e543-434b-8e0d-c46c6361c696";
+  /* =================================================================== */
+
+  let guestName  = "";
+  let gameActive = false;
+
+  /* ---------- floating hearts + twinkling stars ---------- */
+  const sky = document.getElementById('sky');
+  const hearts = ['💗','💖','💕','❤️','💓','🩷','💞','💘'];
+  const stars  = ['✦','✧','⭐','🌟','✨'];
+
+  function spawnFloat(){
+    const el = document.createElement('div');
+    el.className = 'float';
+    el.textContent = hearts[Math.random()*hearts.length|0];
+    el.style.left = Math.random()*100 + 'vw';
+    const dur = 6 + Math.random()*7;
+    el.style.animationDuration = dur + 's';
+    el.style.fontSize = (16 + Math.random()*26) + 'px';
+    sky.appendChild(el);
+    setTimeout(()=>el.remove(), dur*1000);
+  }
+  setInterval(spawnFloat, 320);
+  for(let i=0;i<14;i++) setTimeout(spawnFloat, i*180);
+
+  function spawnStars(){
+    for(let i=0;i<40;i++){
+      const s = document.createElement('div');
+      s.className = 'twinkle';
+      s.textContent = stars[Math.random()*stars.length|0];
+      s.style.left = Math.random()*100 + 'vw';
+      s.style.top  = Math.random()*100 + 'vh';
+      s.style.fontSize = (10 + Math.random()*18) + 'px';
+      s.style.animationDelay = (Math.random()*2.4) + 's';
+      sky.appendChild(s);
+    }
+  }
+  spawnStars();
+
+  /* ---------- the runaway "No" + growing "Yes" ---------- */
+  const yes = document.getElementById('yes');
+  const no  = document.getElementById('no');
+  const noLines = ['No','Are you sure? 🥺','Really?? 😮','Think again! 💭',
+                   'Pretty please 🥹','Don\'t be mean 😭','Last chance! 💔',
+                   'You can\'t catch me 😝','Just say yes 🙈','Reconsider? 🌷'];
+
+  let yesScale = 1, dodges = 0, lastHop = 0;
+  let curX = 0, curY = 0, attached = false;
+  const SAFE = 115;   // how close the cursor may get before it bolts
+  const PAD  = 18;    // keep this much gap from every screen edge
+
+  function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+
+  // switch to fixed positioning exactly where it currently sits (no visual jump)
+  function detach(){
+    if(attached) return;
+    const r = no.getBoundingClientRect();
+    curX = r.left; curY = r.top;
+    no.style.left = curX + 'px';
+    no.style.top  = curY + 'px';
+    no.classList.add('run');
+    // pop out of the animated .card — its CSS transform was making position:fixed
+    // resolve against the card box instead of the viewport, flinging it off-screen.
+    document.body.appendChild(no);
+    attached = true;
+  }
+
+  // jump to a random spot far from the cursor — ALWAYS fully inside the screen
+  function escape(px, py){
+    detach();
+    const w = no.offsetWidth, h = no.offsetHeight;
+    const maxX = Math.max(PAD, window.innerWidth  - w - PAD);
+    const maxY = Math.max(PAD, window.innerHeight - h - PAD);
+
+    // try several random landing spots, keep the one farthest from the cursor
+    let best = null, bestD = -1;
+    for(let i=0;i<18;i++){
+      const tx = PAD + Math.random()*(maxX - PAD);
+      const ty = PAD + Math.random()*(maxY - PAD);
+      const d  = Math.hypot(tx + w/2 - px, ty + h/2 - py)   // away from cursor
+               + Math.hypot(tx - curX, ty - curY)*0.25;     // and a real jump from here
+      if(d > bestD){ bestD = d; best = {tx, ty}; }
+      if(Math.hypot(tx + w/2 - px, ty + h/2 - py) > SAFE*2.2){ best = {tx, ty}; break; }
+    }
+
+    curX = clamp(best.tx, PAD, maxX);
+    curY = clamp(best.ty, PAD, maxY);
+    no.style.left = curX + 'px';
+    no.style.top  = curY + 'px';
+    no.style.transform = 'rotate(' + (Math.random()*16 - 8) + 'deg)';
+
+    // taunt + grow Yes just a little each genuine attempt
+    dodges++;
+    no.textContent = noLines[dodges % noLines.length];
+    yesScale = Math.min(1 + dodges*0.08, 2.8);
+    yes.style.setProperty('--yesScale', yesScale);
+    yes.style.transform = 'scale(' + yesScale + ')';
+  }
+
+  // bolt when the pointer gets near it
+  function near(e){
+    if(!gameActive) return;
+    const px = e.touches ? e.touches[0].clientX : e.clientX;
+    const py = e.touches ? e.touches[0].clientY : e.clientY;
+    const r = no.getBoundingClientRect();
+    const cx = r.left + r.width/2, cy = r.top + r.height/2;
+    if(Math.hypot(px - cx, py - cy) < SAFE){
+      const now = performance.now();
+      if(now - lastHop < 90) return;   // small cooldown so it doesn't stutter
+      lastHop = now;
+      escape(px, py);
+    }
+  }
+
+  document.addEventListener('mousemove', near, {passive:true});
+  document.addEventListener('touchmove', near, {passive:true});
+  no.addEventListener('mouseenter', e=> escape(e.clientX, e.clientY));
+  no.addEventListener('pointerdown', e=>{ e.preventDefault(); escape(e.clientX, e.clientY); });
+  no.addEventListener('touchstart', e=>{ e.preventDefault(); const t=e.touches[0]; escape(t.clientX, t.clientY); }, {passive:false});
+  no.addEventListener('click', e=>{ e.preventDefault(); escape(e.clientX, e.clientY); });
+  no.addEventListener('focus', ()=> escape(window.innerWidth/2, window.innerHeight/2));
+
+  // if the window resizes, make sure it never ends up stranded off-screen
+  window.addEventListener('resize', ()=>{
+    if(!attached) return;
+    const w = no.offsetWidth, h = no.offsetHeight;
+    curX = clamp(curX, PAD, Math.max(PAD, window.innerWidth  - w - PAD));
+    curY = clamp(curY, PAD, Math.max(PAD, window.innerHeight - h - PAD));
+    no.style.left = curX + 'px';
+    no.style.top  = curY + 'px';
+  });
+
+  /* ---------- YES → celebrate → redirect ---------- */
+  function heartBurst(){
+    const b = document.createElement('div');
+    b.className = 'burst';
+    document.body.appendChild(b);
+    const cx = window.innerWidth/2, cy = window.innerHeight/2;
+    for(let i=0;i<60;i++){
+      const s = document.createElement('span');
+      s.textContent = hearts[Math.random()*hearts.length|0];
+      const ang = Math.random()*Math.PI*2;
+      const dist = 120 + Math.random()*window.innerWidth*0.45;
+      s.style.left = cx + 'px';
+      s.style.top  = cy + 'px';
+      s.style.setProperty('--tx', Math.cos(ang)*dist + 'px');
+      s.style.setProperty('--ty', Math.sin(ang)*dist + 'px');
+      s.style.fontSize = (18 + Math.random()*34) + 'px';
+      s.style.animationDelay = (Math.random()*0.15) + 's';
+      b.appendChild(s);
+    }
+  }
+
+  yes.addEventListener('click', ()=>{
+    notifyYes(guestName);
+    try{ sessionStorage.setItem('proposalName', guestName); }catch(e){}
+    heartBurst();
+    yes.textContent = 'YAY! 💞';
+    setTimeout(()=>{ window.location.href = 'yay.html'; }, 1100);
+  });
+
+  /* send the "they said yes!" email via Web3Forms (silent + non-blocking) */
+  function notifyYes(name){
+    const who = (name && name.trim()) ? name.trim() : 'Someone';
+    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') return;
+    fetch('https://api.web3forms.com/submit', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: '💞 ' + who + ' said YES!',
+        from_name: 'Your Proposal Site 💌',
+        name: who,
+        message: who + ' just clicked YES on your proposal! 💖🎉'
+      })
+    }).catch(function(){});
+  }
+
+  /* ---------- name screen → reveal the game ---------- */
+  (function(){
+    const nameCard     = document.getElementById('nameCard');
+    const proposalCard = document.getElementById('proposalCard');
+    const nameInput    = document.getElementById('nameInput');
+    const goBtn        = document.getElementById('goBtn');
+    const subLine      = document.getElementById('subLine');
+
+    nameInput.addEventListener('input', ()=>{
+      goBtn.disabled = nameInput.value.trim().length === 0;
+    });
+    nameInput.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' && nameInput.value.trim()) start();
+    });
+    goBtn.addEventListener('click', start);
+
+    function start(){
+      guestName = nameInput.value.trim();
+      if(!guestName) return;
+      subLine.textContent = guestName + ', be honest now… 🥺👉👈';
+      nameCard.hidden = true;
+      proposalCard.hidden = false;
+      gameActive = true;
+      nameInput.blur();
+    }
+
+    nameInput.focus();
+  })();
+</script>
+</body>
+</html>
