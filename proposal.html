@@ -229,7 +229,7 @@
 
   <main class="card" id="nameCard">
     <div class="bigheart">💌</div>
-    <h1 class="q">Hi there!</h1>
+    <h1 class="q">Hi !</h1>
     <p class="sub">before we start… what should I call you? 🥰</p>
 
     <input id="nameInput" type="text" maxlength="40" placeholder="type your name…"
@@ -244,15 +244,15 @@
 
   <main class="card" id="proposalCard" hidden>
     <div class="bigheart">💖</div>
-    <h1 class="q">Will you go out with me?</h1>
-    <p class="sub" id="subLine">be honest now… 🥺👉👈</p>
+    <h1 class="q">あなたのことが好きです。デートしてくれませんか？</h1>
+    <p class="sub" id="subLine">正直に言って... 🥺👉👈</p>
 
     <div class="btns" id="btns">
       <button id="yes" type="button">Yes 💘</button>
-      <button id="no" type="button">No</button>
+      <button id="no" type="button">いいえ</button>
     </div>
 
-    <p class="hint">psst — the “No” button is a little shy 😏</p>
+    <p class="hint">こっそり〜「いいえ」ボタンはちょっと恥ずかしがり屋さん😏</p>
   </main>
 
 <script>
@@ -305,9 +305,18 @@
   /* ---------- the runaway "No" + growing "Yes" ---------- */
   const yes = document.getElementById('yes');
   const no  = document.getElementById('no');
-  const noLines = ['No','Are you sure? 🥺','Really?? 😮','Think again! 💭',
-                   'Pretty please 🥹','Don\'t be mean 😭','Last chance! 💔',
-                   'You can\'t catch me 😝','Just say yes 🙈','Reconsider? 🌷'];
+  const noLines = [
+    'いいえ',
+    '本当に？🥺',
+    'ほんとに？？😮',
+    'もう一回考えて！💭',
+    'お願い〜🥹',
+    'いじわるしないで😭',
+    '最後のチャンス！💔',
+    '捕まえられないよ〜😝',
+    '「はい」って言って🙈',
+    'もう一度考えて？🌷'
+  ];
 
   let yesScale = 1, dodges = 0, lastHop = 0;
   let curX = 0, curY = 0, attached = false;
@@ -460,7 +469,7 @@
     function start(){
       guestName = nameInput.value.trim();
       if(!guestName) return;
-      subLine.textContent = guestName + ', be honest now… 🥺👉👈';
+      subLine.textContent = guestName + ', 正直に言って...🥺👉👈';
       nameCard.hidden = true;
       proposalCard.hidden = false;
       gameActive = true;
